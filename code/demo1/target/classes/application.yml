@@ -1,0 +1,19 @@
+server:
+  port: 8888
+com:
+  caodm:
+    name: caodm3
+    want: "拉拉"
+    yerHope: ${com.caodm.name}�ڴ�${com.caodm.want}
+caodm:
+  secret: ${random.value}
+  number:
+    less:
+      than:
+        ten: ${random.int(10)}
+  bigNumber: ${random.long}
+  uuid: ${random.uuid}
+
+
+
+

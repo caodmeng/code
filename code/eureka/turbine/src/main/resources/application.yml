@@ -1,0 +1,23 @@
+server:
+  port: 8301
+management:
+  server:
+    port: 9301
+spring:
+  application:
+    name: TURBINE
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+#配置需要监控的微服务的服务名称
+turbine:
+  app-config: cons
+  #用于定位不同的服务集群
+  #cluster-name-expression: "default"
+  #对于同一个服务器中的服务可以通过端口区分为不同的服务示例
+  combine-host-port: true
+logging:
+  level:
+    org:
+      springframework: INFO

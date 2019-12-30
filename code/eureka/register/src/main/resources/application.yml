@@ -1,0 +1,26 @@
+#服务名称
+spring:
+  application:
+    name: servicediscovery
+#设置eureka服务器启动端口
+server:
+  port: 8888
+#服务器运行的宿主机名称
+eureka:
+  instance:
+    hostname: sdpeer
+  client:
+    register-with-eureka: true #当springboot启动完成后是否将该服务注册到服务治理服务器上 false不注册
+    fetch-registry: true #应用启动后不需要从服务治理服务器中同步已注册的服务注册列表数据到本地
+    service-url:
+      defaultZone: http://sdpeer1:8887/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 5
+#eureka服务访问安全 在SpringBoot2.0版本后安全配置将不再是可定制的
+#Hystrix库
+# 对第三方接口/依赖服务潜在的调用失败提供保护和控制机制
+# 在分布式系统中隔离资源，降低耦合，防止服务之间相互调用而导致级连失败
+# 快速失败及迅速恢复
+# 在合适的时机对服务进行优雅降级处理
+# 对服务提供近乎实时的监控、报警和控制操作
+

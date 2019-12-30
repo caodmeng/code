@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "com.caodm",
+      "type": "com.example.demo1.bean.ConfigBean",
+      "sourceType": "com.example.demo1.bean.ConfigBean"
+    },
+    {
+      "name": "com.md",
+      "type": "com.example.demo1.bean.ConfigTestBean",
+      "sourceType": "com.example.demo1.bean.ConfigTestBean"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.caodm.name",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo1.bean.ConfigBean"
+    },
+    {
+      "name": "com.caodm.want",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo1.bean.ConfigBean"
+    },
+    {
+      "name": "com.caodm.yer-hope",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo1.bean.ConfigBean"
+    },
+    {
+      "name": "com.md.cc",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo1.bean.ConfigTestBean"
+    },
+    {
+      "name": "com.md.dd",
+      "type": "java.lang.String",
+      "sourceType": "com.example.demo1.bean.ConfigTestBean"
+    }
+  ],
+  "hints": []
+}

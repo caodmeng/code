@@ -1,0 +1,9 @@
+#设置eureka服务器启动端口
+server:
+  port: 8888
+eureka:
+  client:
+    register-with-eureka: false #当springboot启动完成后是否将该服务注册到服务治理服务器上 false不注册
+    fetch-registry: false #应用启动后不需要从服务治理服务器中同步已注册的服务注册列表数据到本地
+  server:
+    wait-time-in-ms-when-sync-empty: 5

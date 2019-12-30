@@ -1,0 +1,34 @@
+server:
+  port: 8102
+spring:
+  application:
+    name: prov
+    desc: 服务提供者原子服务
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${spring.cloud.client.ip-address} # 服务治理地址显示为ip地址
+    instanceId: ${spring.cloud.client.ip-address}:${server.port} #服务治理地址显示为ip地址 默认：服务器宿主机名称+服务名称+端口号
+  client:
+    register-with-eureka: true #当springboot启动完成后是否将该服务注册到服务治理服务器上 false不注册
+    #如果一个服务实例单纯地仅作为服务消费者并不对外提供服务那么register-with-eureka可以设置为false
+    fetch-registry: true #应用启动后不需要从服务治理服务器中同步已注册的服务注册列表数据到本地，
+    #如果一个服务实例单纯地仅作为服务提供者并不消费其他服务那么fetch-registry可以设置为false
+    serviceUrl: #eureka服务器地址
+      defaultZone: http://localhost:8888/eureka/
+
+# 一个服务实例注册到eureka服务器大概需要30秒才能够在控制台中查看到该服务，这是因为，eureka要求服务提供者必须发送
+# 三次心跳(默认每次心跳时间为10秒)后才认为该服务实例已经准备好，可以对外提供服务
+
+#ribbon负载均衡客户端负载均衡采用轮询策略是客户端进程内负载均衡方案
+# 1) ribbon首先根据其所在的Zone优先选择一个负载少的eureka服务器
+# 2）定期从eureka服务器更新，并过滤服务实例列表
+# 3）根据制定的负载均衡策略，从可用的服务实例列表中选择一个
+# 4）然后根据该地址，通过rest客户端进行服务调用
+#原理
+# 服务发现：能够自动的发现所依赖服务的列表
+# 服务监听：能够监测到失效的服务，并高效地将失效的服务从服务列表中剔除
+# 服务选择策略：也就是负载均衡策略，能够决定如何在多个服务实例中选择一个有效的服务实例，并进行相应的服务请求处理
+#ribbon负载均衡策略  轮询策略 随机选择  最大可用策略 带有加权的轮询策略  可用过滤策略  区域感知策略
+
+

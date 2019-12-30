@@ -1,0 +1,19 @@
+#服务名称
+spring:
+  application:
+    name: servicediscovery1
+#设置eureka服务器启动端口
+server:
+  port: 8887
+#服务器运行的宿主机名称
+eureka:
+  instance:
+    hostname: sdpeer1
+  client:
+    register-with-eureka: true #当springboot启动完成后是否将该服务注册到服务治理服务器上 false不注册
+    fetch-registry: true #应用启动后不需要从服务治理服务器中同步已注册的服务注册列表数据到本地
+    service-url:
+      defaultZone: http://sdpeer:8888/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 5
+

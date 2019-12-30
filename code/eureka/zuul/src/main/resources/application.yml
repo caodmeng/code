@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    service-url: #eureka服务器地址
+        defaultZone: http://localhost:8888/eureka/
+#自定义网关路由配置
+zuul:
+  routes:
+    cons: /con/**
+  ignored-services: cons #忽略指定微服务
+  prefix: /api #统一前缀
+  sensitiveHeaders: X-ABC #敏感header设置
+  host:
+    socket-timeout-millis: 28000
+    connect-timeout-millis: 28000
+
+
