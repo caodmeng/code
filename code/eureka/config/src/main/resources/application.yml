@@ -1,1 +1,15 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/caodmeng/code/
+          search-paths: /code/eureka/configFile
+          username: caodmeng
+      label: master
+
 
