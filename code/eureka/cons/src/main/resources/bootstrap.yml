@@ -1,9 +1,15 @@
-server:
-  port: 8201
 spring:
-  application:
-    name: cons
-    desc: 组合服务服务调用者
+  cloud:
+    config:
+      name: cons
+      #profile: dev
+      #label: dev
+      retry:
+        initial-interval: 2000
+        max-attempts: 5
+      discovery:
+        enabled: true
+        serviceId: config
 eureka:
   instance:
     prefer-ip-address: true
@@ -17,25 +23,5 @@ eureka:
     #如果一个服务实例单纯地仅作为服务提供者并不消费其他服务那么fetch-registry可以设置为false
     serviceUrl: #eureka服务器地址
       defaultZone: http://localhost:8888/eureka/
-prov:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.ZoneAvoidanceRule
-feign:
-  hystrix:
-   enabled: true
-
-# 一个服务实例注册到eureka服务器大概需要30秒才能够在控制台中查看到该服务，这是因为，eureka要求服务提供者必须发送
-# 三次心跳(默认每次心跳时间为10秒)后才认为该服务实例已经准备好，可以对外提供服务
-#业务超时配置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 30000
-#服务隔离配置
-
-
-
-
+logging:
+  config: classpath:log4j2.yml

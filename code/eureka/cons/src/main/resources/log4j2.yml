@@ -1,0 +1,86 @@
+Configuration:
+  status: warn
+  monitorInterval: 30
+  Properties: # 定义全局变量
+    Property: 
+      - name: log.level.console
+        value: info
+      - name: log.path
+        value: logs
+      - name: project.name
+        value: ai-cmdc-cms-restful
+      - name: log.pattern
+        value: '{"message": "%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] [%thread][%file:%line — %method] - %msg", "project": "cms", "level": "%level"}%n'
+  Appenders:
+    Console:  #输出到控制台
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: ${log.pattern}
+    Socket:  #输出到远程logstash
+      name: LOGSTASH
+      PatternLayout:
+        pattern: ${log.pattern}
+      host: 10.21.20.78
+      port: 4560
+#   启动日志
+    RollingFile:
+      - name: ROLLING_FILE
+        fileName: ${log.path}/${project.name}.log
+        filePattern: "${log.path}/historyRunLog/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
+        PatternLayout:
+          pattern: ${log.pattern}
+        Filters:
+#        一定要先去除不接受的日志级别，然后获取需要接受的日志级别
+          ThresholdFilter:
+            - level: error
+              onMatch: DENY
+              onMismatch: NEUTRAL
+            - level: info
+              onMatch: ACCEPT
+              onMismatch: DENY
+        Policies:
+          TimeBasedTriggeringPolicy:  # 按天分类
+            modulate: true
+            interval: 1
+        DefaultRolloverStrategy:     # 文件最多100个
+          max: 100
+#   错误日志
+      - name: EXCEPTION_ROLLING_FILE
+        ignoreExceptions: false
+        fileName: ${log.path}/exception/${project.name}_exception.log
+        filePattern: "${log.path}/exception/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
+        ThresholdFilter:
+          level: error
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          pattern: ${log.pattern}
+        Policies:
+          TimeBasedTriggeringPolicy:  # 按天分类
+            modulate: true
+            interval: 1
+        DefaultRolloverStrategy:     # 文件最多100个
+          max: 100
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: CONSOLE
+        - ref: ROLLING_FILE
+        - ref: EXCEPTION_ROLLING_FILE
+        #- ref: LOGSTASH
+    Logger:
+      - name: exception
+        level: debug
+        additivity: true
+        AppenderRef:
+          - ref: EXCEPTION_ROLLING_FILE
+#    监听具体包下面的日志
+#    Logger: # 为com.xjj包配置特殊的Log级别，方便调试
+#      - name: com.xjj
+#        additivity: false
+#        level: ${sys:log.level.xjj}
+#        AppenderRef:
+#          - ref: CONSOLE
+#          - ref: ROLLING_FILE
