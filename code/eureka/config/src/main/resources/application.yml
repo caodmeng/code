@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: config
-  profiles:
-    active: git #ÉèÖÃÊ¹ÓÃ±¾µØÅäÖÃ(Ä¬ÈÏÊÇgit,¿ÉÒÔÉèÖÃ£ºsubversion(SVN)£¬native(±¾µØ))
   cloud:
     config:
       server:
@@ -13,14 +11,14 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: ${spring.cloud.client.ip-address} # ·şÎñÖÎÀíµØÖ·ÏÔÊ¾ÎªipµØÖ·
-    instanceId: ${spring.cloud.client.ip-address}:${server.port} #·şÎñÖÎÀíµØÖ·ÏÔÊ¾ÎªipµØÖ· Ä¬ÈÏ£º·şÎñÆ÷ËŞÖ÷»úÃû³Æ+·şÎñÃû³Æ+¶Ë¿ÚºÅ
+    hostname: ${spring.cloud.client.ip-address} # æœåŠ¡æ²»ç†åœ°å€æ˜¾ç¤ºä¸ºipåœ°å€
+    instanceId: ${spring.cloud.client.ip-address}:${server.port} #æœåŠ¡æ²»ç†åœ°å€æ˜¾ç¤ºä¸ºipåœ°å€ é»˜è®¤ï¼šæœåŠ¡å™¨å®¿ä¸»æœºåç§°+æœåŠ¡åç§°+ç«¯å£å·
   client:
-    register-with-eureka: true #µ±springbootÆô¶¯Íê³ÉºóÊÇ·ñ½«¸Ã·şÎñ×¢²áµ½·şÎñÖÎÀí·şÎñÆ÷ÉÏ false²»×¢²á
-    #Èç¹ûÒ»¸ö·şÎñÊµÀıµ¥´¿µØ½ö×÷Îª·şÎñÏû·ÑÕß²¢²»¶ÔÍâÌá¹©·şÎñÄÇÃ´register-with-eureka¿ÉÒÔÉèÖÃÎªfalse
-    fetch-registry: true #Ó¦ÓÃÆô¶¯ºó²»ĞèÒª´Ó·şÎñÖÎÀí·şÎñÆ÷ÖĞÍ¬²½ÒÑ×¢²áµÄ·şÎñ×¢²áÁĞ±íÊı¾İµ½±¾µØ£¬
-    #Èç¹ûÒ»¸ö·şÎñÊµÀıµ¥´¿µØ½ö×÷Îª·şÎñÌá¹©Õß²¢²»Ïû·ÑÆäËû·şÎñÄÇÃ´fetch-registry¿ÉÒÔÉèÖÃÎªfalse
-    serviceUrl: #eureka·şÎñÆ÷µØÖ·
+    register-with-eureka: true #å½“springbootå¯åŠ¨å®Œæˆåæ˜¯å¦å°†è¯¥æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ²»ç†æœåŠ¡å™¨ä¸Š falseä¸æ³¨å†Œ
+    #å¦‚æœä¸€ä¸ªæœåŠ¡å®ä¾‹å•çº¯åœ°ä»…ä½œä¸ºæœåŠ¡æ¶ˆè´¹è€…å¹¶ä¸å¯¹å¤–æä¾›æœåŠ¡é‚£ä¹ˆregister-with-eurekaå¯ä»¥è®¾ç½®ä¸ºfalse
+    fetch-registry: true #åº”ç”¨å¯åŠ¨åä¸éœ€è¦ä»æœåŠ¡æ²»ç†æœåŠ¡å™¨ä¸­åŒæ­¥å·²æ³¨å†Œçš„æœåŠ¡æ³¨å†Œåˆ—è¡¨æ•°æ®åˆ°æœ¬åœ°ï¼Œ
+    #å¦‚æœä¸€ä¸ªæœåŠ¡å®ä¾‹å•çº¯åœ°ä»…ä½œä¸ºæœåŠ¡æä¾›è€…å¹¶ä¸æ¶ˆè´¹å…¶ä»–æœåŠ¡é‚£ä¹ˆfetch-registryå¯ä»¥è®¾ç½®ä¸ºfalse
+    serviceUrl: #eurekaæœåŠ¡å™¨åœ°å€
       defaultZone: http://localhost:8888/eureka/
 
 
