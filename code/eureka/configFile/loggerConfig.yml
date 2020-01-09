@@ -1,0 +1,9 @@
+logging:
+  level: info
+spring:
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties: com.cao
