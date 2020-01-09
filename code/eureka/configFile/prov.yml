@@ -1,0 +1,22 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: prov
+    desc: 服务提供者原子服务
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${spring.cloud.client.ip-address} # 服务治理地址显示为ip地址
+    instanceId: ${spring.cloud.client.ip-address}:${server.port} #服务治理地址显示为ip地址 默认：服务器宿主机名称+服务名称+端口号
+  client:
+    register-with-eureka: true #当springboot启动完成后是否将该服务注册到服务治理服务器上 false不注册
+    #如果一个服务实例单纯地仅作为服务消费者并不对外提供服务那么register-with-eureka可以设置为false
+    fetch-registry: true #应用启动后不需要从服务治理服务器中同步已注册的服务注册列表数据到本地，
+    #如果一个服务实例单纯地仅作为服务提供者并不消费其他服务那么fetch-registry可以设置为false
+    serviceUrl: #eureka服务器地址
+      defaultZone: http://localhost:8888/eureka/
+
+# 一个服务实例注册到eureka服务器大概需要30秒才能够在控制台中查看到该服务，这是因为，eureka要求服务提供者必须发送
+# 三次心跳(默认每次心跳时间为10秒)后才认为该服务实例已经准备好，可以对外提供服务
+
