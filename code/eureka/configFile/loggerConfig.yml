@@ -7,3 +7,5 @@ spring:
       ddl-auto: none
     show-sql: false
     properties: com.cao
+
+#访问路径：localhost:8301/loggerConfig/default

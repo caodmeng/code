@@ -37,5 +37,5 @@ hystrix:
 #服务隔离配置
 
 
-
+#访问 localhost:8301/cons/default
 

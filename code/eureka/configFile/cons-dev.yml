@@ -36,6 +36,6 @@ hystrix:
             timeoutInMilliseconds: 30000
 #服务隔离配置
 
-
+#访问路径配置  localhost:8301/cons/dev
 
 
