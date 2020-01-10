@@ -1,9 +1,15 @@
-server:
-  port: 8102
 spring:
-  application:
-    name: prov
-    desc: 服务提供者原子服务
+  cloud:
+    config:
+      name: provribbon
+      #profile: dev
+      #label: dev
+      retry:
+        initial-interval: 2000
+        max-attempts: 5
+      discovery:
+        enabled: true
+        serviceId: config
 eureka:
   instance:
     prefer-ip-address: true
@@ -31,4 +37,5 @@ eureka:
 # 服务选择策略：也就是负载均衡策略，能够决定如何在多个服务实例中选择一个有效的服务实例，并进行相应的服务请求处理
 #ribbon负载均衡策略  轮询策略 随机选择  最大可用策略 带有加权的轮询策略  可用过滤策略  区域感知策略
 
-
+logging:
+  config: classpath:log4j2.yml
