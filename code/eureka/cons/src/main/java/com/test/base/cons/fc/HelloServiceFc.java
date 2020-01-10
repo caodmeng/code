@@ -16,4 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface HelloServiceFc {
 	@RequestMapping(value = "/hello-provider/hello/{name}", method = RequestMethod.GET)
 	String hello(@PathVariable String name);
+
+	@RequestMapping(value = "/hello-provider/name", method = RequestMethod.GET)
+	String name();
 }

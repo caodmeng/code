@@ -22,6 +22,11 @@ public class HelloConsumerServiceImpl implements IHelloConsumerService {
 		return helloServiceFc.hello(name);
 	}
 
+	@Override
+	public String name() {
+		return helloServiceFc.name();
+	}
+
 	protected String fallHello(String name) {
 		return "fallHello" + name;
 	}

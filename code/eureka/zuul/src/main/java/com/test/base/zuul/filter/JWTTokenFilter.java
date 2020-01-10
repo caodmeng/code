@@ -4,6 +4,7 @@ import com.alibaba.fastjson.serializer.FilterUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,7 +20,7 @@ public class JWTTokenFilter extends ZuulFilter {
     private ServiceConfig serviceConfig;*/
 
     @Override public String filterType() {
-        return null;
+        return FilterConstants.PRE_TYPE;
     }
 
     @Override public int filterOrder() {

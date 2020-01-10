@@ -23,4 +23,8 @@ public class HelloConsumerEndpoint {
 
 		return iHelloConsumerService.hello(name);
 	}
+	@RequestMapping(value = "/name",method = RequestMethod.GET)
+	public String name(){
+		return iHelloConsumerService.name();
+	}
 }
