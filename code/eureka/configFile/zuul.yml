@@ -25,5 +25,5 @@ zuul:
       sensitiveHeaders: X-ABC  #设置要过滤的敏感头部信息
   ignored-services: cons #忽略指定微服务   localhost:8080/con/hello/11?token=22 如果多个使用逗号隔开 将忽略值设置为*则全部使用自定义的方式进行访问
   prefix: /api #设置统一前缀   localhost:8080/api/con/hello/11?token=22
-  strip-prefix: false  #默认情况下，zuul代理会在转发到具体服务实例时自动剥离前缀，转发时带上前缀false true带上前缀
+  #strip-prefix: false  #默认情况下，zuul代理会在转发到具体服务实例时自动剥离前缀，转发时带上前缀false true带上前缀
 #还有一种是静态URL路径配置路由映射 需设置ribbon的负载均衡设置
