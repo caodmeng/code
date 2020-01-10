@@ -19,4 +19,7 @@ public interface HelloServiceFc {
 
 	@RequestMapping(value = "/hello-provider/name", method = RequestMethod.GET)
 	String name();
+
+	@RequestMapping(value = "/hello-provider/person", method = RequestMethod.GET)
+	String person();
 }

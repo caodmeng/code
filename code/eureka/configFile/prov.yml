@@ -12,3 +12,9 @@ spring:
 com:
   prov:
     name: caodm3
+
+#@Value读取测试
+person:
+  name: linyongbin
+  age: 21
+  single: false

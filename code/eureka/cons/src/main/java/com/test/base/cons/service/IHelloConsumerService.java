@@ -8,4 +8,5 @@ package com.test.base.cons.service;
 public interface IHelloConsumerService {
 	String hello(String name);
 	String name();
+	String person();
 }

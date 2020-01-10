@@ -1,5 +1,6 @@
 package com.test.base.ch.prov.controller;
 
+import com.test.base.ch.prov.config.PersonConfig;
 import com.test.base.ch.prov.config.ProvConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloProvideEndpoint {
 	@Autowired
 	private ProvConfig config;
+	@Autowired
+	private PersonConfig personConfig;
 	@RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
 	public String hello(@PathVariable String name) {
 		String hello = "Hello";
@@ -25,5 +28,10 @@ public class HelloProvideEndpoint {
 	@RequestMapping(value = "/name",method = RequestMethod.GET)
 	public String name(){
 		return config.getName();
+	}
+
+	@RequestMapping(value = "/person",method = RequestMethod.GET)
+	public String person(){
+		return personConfig.getName();
 	}
 }

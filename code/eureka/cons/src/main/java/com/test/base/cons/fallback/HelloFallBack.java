@@ -15,7 +15,24 @@ public class HelloFallBack implements HelloServiceFc {
 		return this.fallHello(name);
 	}
 
+	@Override
+	public String name() {
+		return this.fallName();
+	}
+
+	@Override public String person() {
+		return this.fallPerson();
+	}
+
 	protected String fallHello(String name) {
 		return "fallHello" + name;
+	}
+
+	protected String fallName() {
+		return " fallName config名称读取失败！";
+	}
+
+	protected String fallPerson() {
+		return "fallPerson config名称读取失败！";
 	}
 }
