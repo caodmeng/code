@@ -43,11 +43,14 @@
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
         </dependency>
-        <!-- 分布式服务追踪，一旦在项目中增加该依赖在微服务启用运行后，相应的调用就会启用Sleuth监控追踪机制 -->
-        <dependency>
+        <!-- 分布式服务追踪，一旦在项目中增加该依赖在微服务启用运行后，相应的调用就会启用Sleuth监控追踪机制 Sleuth会监视该微服务中的
+        所有请求，查看请求中是否包含了追踪数据，如果没有，将会创建一个新的追踪数据，并将该追踪数据添加
+        到请求的header中。
+        -->
+       <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
     <build>
         <plugins>
