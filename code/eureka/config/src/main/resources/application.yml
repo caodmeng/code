@@ -29,7 +29,3 @@ eureka:
     serviceUrl: #eureka服务器地址
       defaultZone: http://localhost:8888/eureka/
 
-security:
-  user:
-    name: cadom3
-    password: 123321
