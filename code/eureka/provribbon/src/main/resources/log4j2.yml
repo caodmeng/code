@@ -8,9 +8,9 @@ Configuration:
       - name: log.path
         value: logs
       - name: project.name
-        value: ai-cmdc-cms-restful
+        value: provribbon
       - name: log.pattern
-        value: '{"message": "%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] [%thread][%file:%line — %method] - %msg", "project": "cms", "level": "%level"}%n'
+        value: '{"message": "%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] [%thread][%file:%line — %method] - %msg", "project": "provribbon", "level": "%level"}%n'
   Appenders:
     Console:  #输出到控制台
       name: CONSOLE
