@@ -65,7 +65,28 @@
             <artifactId>spring-cloud-starter-hystrix</artifactId>
             <version>1.4.7.RELEASE</version>
         </dependency>
-
+        <!-- 配置客户端开启重试机制  当配置客户端连接配置服务器失败时，配置客户端会继续尝试连接配置服务器，客户端默认尝试连接6次
+         时间间隔初始化值为1000毫秒，后面每次尝试会按照1.1倍增加尝试连接时间的间隔
+         -->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.2.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!-- 动态刷新配置 http://localhost:8080/refresh-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+      <!--  &lt;!&ndash; 分布式服务追踪，一旦在项目中增加该依赖在微服务启用运行后，相应的调用就会启用Sleuth监控追踪机制 &ndash;&gt;
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>-->
     </dependencies>
 
     <build>

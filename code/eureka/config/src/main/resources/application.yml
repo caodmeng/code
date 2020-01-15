@@ -15,6 +15,8 @@ spring:
           password:                                             # git仓库的密码（公开仓库无需账号信息）
           default-label: master                             #git默认分支
           basedir: /app/cao666/tmp/                         #为配置指明配置服务器指定明确的本地缓存路径
+          clone-on-start: true                              #开启启动时加载配置信息
+      fail-fast: true                                       #当无法连接到配置服务器时希望其能够快速返回失败
 #访问  localhost:8301/cons/default
 eureka:
   instance:
