@@ -10,7 +10,8 @@ Configuration:
       - name: project.name
         value: cons
       - name: log.pattern
-        value: '{"message": "%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] [%thread][%file:%line — %method] - %msg", "project": "cons", "level": "%level"}%n'
+        value: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint}%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}'
+        #value: '{"message": "%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-B3-ParentSpanId},%X{X-Span-Export}] [%thread][%file:%line — %method] - %msg", "project": "cons", "level": "%level"}%n'
   Appenders:
     Console:  #输出到控制台
       name: CONSOLE
@@ -33,7 +34,7 @@ Configuration:
         Filters:
 #        一定要先去除不接受的日志级别，然后获取需要接受的日志级别
           ThresholdFilter:
-            - level: error
+            - level: info
               onMatch: DENY
               onMismatch: NEUTRAL
             - level: info
@@ -72,7 +73,7 @@ Configuration:
         #- ref: LOGSTASH
     Logger:
       - name: exception
-        level: debug
+        level: info
         additivity: true
         AppenderRef:
           - ref: EXCEPTION_ROLLING_FILE
