@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: provribbon
+      name: provribbon,zipkin
       #profile: dev
       #label: dev
       retry:

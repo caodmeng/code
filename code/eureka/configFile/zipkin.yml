@@ -1,0 +1,8 @@
+#链路追踪地址配置 probability: 1 表示全部收集 后续可调 0-1
+spring:
+  zipkin:
+    base-url: http://47.106.118.164:9411
+    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1

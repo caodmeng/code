@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: zuul
+      name: zuul,zipkin
       #profile: dev
       #label: dev
       retry:
