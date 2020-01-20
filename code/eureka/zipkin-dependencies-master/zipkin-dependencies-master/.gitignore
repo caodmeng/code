@@ -1,0 +1,19 @@
+*~
+#*
+*#
+.#*
+dependency-reduced-pom.xml
+.factorypath
+.classpath
+.project
+.settings/
+.springBeans
+target/
+_site/
+.idea
+*.iml
+*.swp
+.DS_Store
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar

@@ -1,0 +1,10 @@
+# we block import of shaded packages as maven bundle plugin analyzes the unshaded jar
+Import-Package: \
+	!com.google.gson.stream,\
+	*
+Export-Package: \
+	zipkin2,\
+	zipkin2.codec,\
+	zipkin2.storage,\
+	zipkin2.v1,\
+	zipkin2.internal;zipkin2internal=true;mandatory:=zipkin2internal
